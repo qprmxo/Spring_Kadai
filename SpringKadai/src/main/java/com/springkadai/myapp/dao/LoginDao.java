@@ -55,14 +55,16 @@ public class LoginDao {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				
+				return "このユーザーIDは既に使用されています。";
+			}else {
+				return "使用できます。";
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
+			return null;
+		}finally {
+			DBConnect.close(con, pstmt, rs);
 		}
-		
-		
-		return "";
 	}
 }
