@@ -5,14 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Struts Kadai Result</title>
-<script src="/StrutsKadai/js/jquery-3.3.1.js"></script>
+<title>Spring_Kadai_Result</title>
+<script src="resources/js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	function check(){
 		var result = document.getElementById("result").value;
+		var cmd = document.getElementById("cmd").value;
 		alert(result);
-		if($("#cmd").val() == "fail"){
-			location.href="/";
+		if(cmd == "fail"){
+			location.href="login";
 		}else{
 			location.href="search";
 		}

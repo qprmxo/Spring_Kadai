@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Struts Kadai JoinCheck</title>
+<title>Spring_Kadai_JoinCheck</title>
 <link rel="stylesheet" href="resources/css/jquery-ui.css">
 <script src="resources/js/jquery-3.3.1.js"></script>
 <script src="resources/js/jquery-ui.js"></script>

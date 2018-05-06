@@ -5,17 +5,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Struts Kadai Search</title>
-<script src="/StrutsKadai/js/jquery-3.3.1.js"></script>
+<title>Spring_Kadai_Search</title>
+<script src="resources/js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(function(){
 		
 		$("#btnLogout").on('click', function(){
-			location.href="/StrutsKadai/logout.do";
+			location.href="logout";
 		});
 		
 		$("#btnJoin").on('click', function(){
-			location.href="/StrutsKadai/user/join.jsp";
+			location.href="join";
 		});
 		
 		$("#btnSearch").on('click', function(){
@@ -38,19 +38,17 @@
 				alert("カナは半角で入力してください。");
 				return false;
 			}
-			
-			$("#cmd").val("search");
 			$("#frm").submit();
 		});
 		
 		$("#btnUpdate").on('click', function(){
 			var id = $("#btnUpdate").attr("data-value");
-			location.href="search.do?id=" + id + "&cmd=update";
+			location.href="update?id=" + id;
 		});
 		
 		$("#btnDelete").on('click', function(){
 			var id = $("#btnDelete").attr("data-value");
-			location.href="search.do?id=" + id + "&cmd=delete";
+			location.href="delete?id=" + id;
 		});
 
 	});
@@ -62,7 +60,7 @@
 
 <h1>検索画面</h1>
 
-<form action="/StrutsKadai/search.do" id="frm" method="post">
+<form action="search" id="frm" method="post">
 
 	<table border="1">
 	
@@ -79,9 +77,7 @@
 		</tr>
 		
 	</table>
-	
-	<input type="hidden" name="cmd" id="cmd">
-	
+
 </form>
 
 <button type="button" id="btnSearch">検索</button>
