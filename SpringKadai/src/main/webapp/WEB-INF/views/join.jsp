@@ -31,7 +31,13 @@ table td {
 				url : "idCheck",
 				data : "id=" + $("#id").val(),
 				success : function(res){
-					alert(res);
+					if(res == "fail"){
+						alert("このユーザーIDは既に使用されています。");
+					}else if(res == "success"){
+						alert("使用できます。");
+					}else{
+						alert("エラー");
+					}
 				},
 				error : function(e){
 					alert("Error : " + e);
@@ -118,7 +124,7 @@ table td {
 
 	<h1>新規登録入力画面</h1>
 
-	<form action="" id="frm" method="post">
+	<form action="join" id="frm" method="post">
 
 		<table>
 
@@ -162,6 +168,8 @@ table td {
 			</tr>
 
 		</table>
+		
+		<input type="hidden" value="joinCheck" name="cmd">
 
 	</form>
 	

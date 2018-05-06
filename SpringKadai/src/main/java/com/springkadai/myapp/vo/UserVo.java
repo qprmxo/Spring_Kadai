@@ -1,15 +1,15 @@
 package com.springkadai.myapp.vo;
 
-public class User1Vo {
+public class UserVo {
 
 	private String id;
 	private String pass;
 	private String name;
 	private String kana;
 	
-	public User1Vo() {}
+	public UserVo() {}
 
-	public User1Vo(String id, String pass, String name, String kana) {
+	public UserVo(String id, String pass, String name, String kana) {
 		super();
 		this.id = id;
 		this.pass = pass;

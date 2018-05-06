@@ -11,11 +11,16 @@
 	function check(){
 		var result = document.getElementById("result").value;
 		alert(result);
-		location.href="login";
+		if($("#cmd").val() == "fail"){
+			location.href="/";
+		}else{
+			location.href="search";
+		}
 	}
 </script>
 </head>
 <body onload="check()">
 <input type="hidden" id="result" value="${result }">
+<input type="hidden" id="cmd" value="${cmd }">
 </body>
 </html>

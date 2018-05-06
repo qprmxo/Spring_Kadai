@@ -18,6 +18,13 @@ public class UserDetailVo {
 		this.birth = birth;
 		this.club = club;
 	}
+	
+	public UserDetailVo(String id, Date birth, String club) {
+		super();
+		this.id = id;
+		this.birth = birth;
+		this.club = club;
+	}
 
 	public int getNo() {
 		return no;
