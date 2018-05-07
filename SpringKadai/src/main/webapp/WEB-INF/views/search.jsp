@@ -41,13 +41,13 @@
 			$("#frm").submit();
 		});
 		
-		$("#btnUpdate").on('click', function(){
-			var id = $("#btnUpdate").attr("data-value");
+		$(".btnUpdate").on('click', function(){
+			var id = $(this).val();
 			location.href="update?id=" + id;
 		});
 		
-		$("#btnDelete").on('click', function(){
-			var id = $("#btnDelete").attr("data-value");
+		$(".btnDelete").on('click', function(){
+			var id = $(this).val();
 			location.href="delete?id=" + id;
 		});
 
@@ -56,57 +56,60 @@
 </head>
 <body>
 
-<div>前方一致で検索します。</div>
-
-<h1>検索画面</h1>
-
-<form action="search" id="frm" method="post">
-
-	<table border="1">
+<div align="center">
+	<div>前方一致で検索します。</div>
 	
-		<tr>
-			<th>ID</th><td><input type="text" name="id" id="id" value="${requestScope.id }"></td>
-		</tr>
+	<h1>検索画面</h1>
+	
+	<form action="search" id="frm" method="post">
+	
+		<table border="1">
 		
+			<tr>
+				<th>ID</th><td><input type="text" name="id" id="id" value="${requestScope.id }"></td>
+			</tr>
+			
+			<tr>
+				<th>名前</th><td><input type="text" name="name" id="name" value="${name }"></td>
+			</tr>
+			
+			<tr>
+				<th>カナ</th><td><input type="text" name="kana" id="kana" value="${kana }"></td>
+			</tr>
+			
+		</table>
+	
+	</form>
+	
+	<br>
+	
+	<button type="button" id="btnSearch">検索</button>
+	<button type="button" id="btnJoin">新規登録</button>
+	<button type="button" id="btnLogout">ログアウト</button>
+	
+	<br><br>
+	
+	<table border="1" style="width:600px;text-align: center;" >
 		<tr>
-			<th>名前</th><td><input type="text" name="name" id="name" value="${name }"></td>
+			<th>ID</th>
+			<th>名前</th>
+			<th>カナ</th>
+			<th>生年月日</th>
+			<th>委員会</th>
+			<th>操作</th>
 		</tr>
-		
-		<tr>
-			<th>カナ</th><td><input type="text" name="kana" id="kana" value="${kana }"></td>
-		</tr>
-		
+		<c:forEach var="vo" items="${list }">
+			<tr>
+				<td>${vo.id }</td>
+				<td>${vo.name }</td>
+				<td>${vo.kana }</td>
+				<td>${vo.birth }</td>
+				<td>${vo.club }</td>
+				<td><button type="button" class="btnUpdate" value="${vo.id }">更新</button><button type="button" class="btnDelete" value="${vo.id }">削除</button></td>
+			</tr>
+		</c:forEach>
 	</table>
-
-</form>
-
-<button type="button" id="btnSearch">検索</button>
-<button type="button" id="btnJoin">新規登録</button>
-<button type="button" id="btnLogout">ログアウト</button>
-
-
-
-<table border="1">
-	<tr>
-		<th>ID</th>
-		<th>名前</th>
-		<th>カナ</th>
-		<th>生年月日</th>
-		<th>委員会</th>
-		<th>操作</th>
-	</tr>
-	<c:forEach var="vo" items="${list }">
-		<tr>
-			<td>${vo.id }</td>
-			<td>${vo.name }</td>
-			<td>${vo.kana }</td>
-			<td>${vo.birth }</td>
-			<td>${vo.club }</td>
-			<td><button type="button" id="btnUpdate" data-value="${vo.id }">更新</button><button type="button" id="btnDelete" data-value="${vo.id }">削除</button></td>
-		</tr>
-	</c:forEach>
-</table>
-
+</div>
 
 </body>
 </html>

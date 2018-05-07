@@ -122,11 +122,13 @@ table td {
 </head>
 <body>
 
+<div align="center">
+
 	<h1>新規登録入力画面</h1>
 
 	<form action="join" id="frm" method="post">
 
-		<table>
+		<table style="width:500px;height:300px;text-align:right;">
 
 			<tr>
 				<th>ID :</th>
@@ -134,7 +136,7 @@ table td {
 			</tr>
 
 			<tr>
-				<th colspan="2"><button type="button" id="idCheck">使用できるか確認</button></th>
+				<th></th><td><button type="button" id="idCheck">使用できるか確認</button></td>
 			</tr>
 
 			<tr>
@@ -173,8 +175,12 @@ table td {
 
 	</form>
 	
+	<br>
+	
 	<button type="button" id="btnSubmit">登録します</button>
 	<button type="button" id="btnRt">戻る</button>
+	
+</div>
 
 </body>
 </html>

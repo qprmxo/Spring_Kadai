@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spring_Kadai_DeleteCheck</title>
+<title>Spring_Kadai_UpdateCheck</title>
 <link rel="stylesheet" href="resources/css/jquery-ui.css">
 <script src="resources/js/jquery-3.3.1.js"></script>
 <script src="resources/js/jquery-ui.js"></script>
@@ -38,14 +38,14 @@
 <div align="center">
 
 	<div id="dialog" title="Basic dialog">
-		<p>今の情報を削除してもよろしいでしょうか?</p>
+		<p>今の情報で更新してもよろしいでしょうか?</p>
 		<button id="btnY">はい</button>
 		<button id="btnN">いいえ</button>
 	</div>
 	
-	<h1>【データ削除の確認】</h1>
+	<h1>【データ変更の確認】</h1>
 	
-	<form action="delete" method="post" id="frm">
+	<form action="update" method="post" id="frm">
 		<table border="1">
 			<tr>
 				<th>ユーザID</th><td><input type="text" name="id" value="${user.id }" readonly="readonly"></td>
@@ -57,18 +57,20 @@
 				<th>カナ</th><td><input type="text" name="kana" value="${user.kana }" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<th>生年月日</th><td><input type="date" name="birth" value="${userdetail.birth }" readonly="readonly"></td>
+				<th>生年月日</th><td><input type="date" name="birth" value="${user.birth }" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<th>委員会</th><td><input type="text" name="club" value="${userdetail.club }" readonly="readonly"></td>
+				<th>委員会</th><td><input type="text" name="club" value="${user.club }" readonly="readonly"></td>
 			</tr>
 		</table>
-		
+
 	</form>
+	
+	<br>
 
 	<button type="button" id="btnSubmit">確認</button>
 	<button type="button" id="btnRt">戻る</button>
-	
+
 </div>
 
 </body>

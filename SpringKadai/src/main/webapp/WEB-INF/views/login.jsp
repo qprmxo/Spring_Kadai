@@ -35,9 +35,11 @@
 
 </head>
 
-<h1>ログイン画面</h1>
-
 <body>
+
+<div align="center">
+
+	<h1>ログイン画面</h1>
 
 	<form action="login" method="post" id="frm">
 	
@@ -53,6 +55,8 @@
 			
 		</table>
 		
+		<br>
+		
 		<button type="button" id="btnSubmit">ログイン</button>
 		
 	</form>
@@ -60,6 +64,8 @@
 	<br>
 	
 	<a href="join">新規加入</a>
+	
+</div>
 	
 </body>
 </html>

@@ -62,7 +62,7 @@ public class UserController {
 	}
 	
 	
-	// Join (insert)
+	// insert
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 		return "join";
@@ -128,6 +128,8 @@ public class UserController {
 		return "search";
 	}
 	
+	
+	// delete 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String deleteCheck(Model model, String id) {
 		UserVo user = userDao.find(id);
@@ -149,4 +151,36 @@ public class UserController {
 		return "result";		
 	}
 
+	
+	// update
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(Model model, String id) {
+		
+		UserVo user = userDao.find(id);
+		UserDetailVo userdetail = userdetailDao.find(id);
+		
+		model.addAttribute("user", user);
+		model.addAttribute("userdetail", userdetail);
+		
+		return "update";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(Model model, String id, String name, String kana, Date birth, String club, String cmd, HttpSession session) {
+		
+		if("updateCheck".equals(cmd)) {
+			
+			UserVo user = new UserVo(id, name, kana, birth, club);
+			model.addAttribute("user", user);
+			
+			return "updateCheck";			
+		}
+		
+		userDao.update(id, name, kana);
+		userdetailDao.update(id, birth, club);		
+		
+		model.addAttribute("result", "データを更新しました。");
+		
+		return "result";
+	}
 }

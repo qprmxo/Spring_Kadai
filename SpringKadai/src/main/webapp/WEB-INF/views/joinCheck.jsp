@@ -34,6 +34,9 @@
 </script>
 </head>
 <body>
+
+<div align="center">
+
 	<div id="dialog" title="Basic dialog">
 		<p>今の情報で登録してもよろしいでしょうか?</p>
 		<button id="btnY">はい</button>
@@ -79,8 +82,12 @@
 
 	</form>
 	
+	<br>
+	
 	<button id="btnSubmit">登録します</button>
 	<button id="btnRt">戻る</button>
+	
+</div>
 
 </body>
 </html>

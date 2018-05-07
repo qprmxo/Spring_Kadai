@@ -60,13 +60,37 @@ public class UserDao {
 		}
 	}
 	
+	public int update(String id, String name, String kana) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update user1 set name=?, kana=? where id=?";
+		
+		try {
+			con = DBConnect.getConn();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, kana);
+			pstmt.setString(3, id);
+			
+			return pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return 0;
+		}finally {
+			DBConnect.close(con, pstmt, null);
+		}
+	}
+	
 	public ArrayList<UserVo> select(String id, String name, String kana) {
 		
 		ArrayList<UserVo> list = new ArrayList<UserVo>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select u.*,ud.* from user1 u, userdetail ud where u.id = ud.id and u.id like ? and u.name like ? and u.kana like ?";
+		String sql = "select u.*,ud.* from user1 u, userdetail ud where u.id = ud.id and u.id like ? and u.name like ? and u.kana like ? order by ud.no asc";
 		
 		try {
 			con = DBConnect.getConn();

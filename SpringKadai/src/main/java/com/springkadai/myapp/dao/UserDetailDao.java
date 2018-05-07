@@ -59,6 +59,29 @@ public class UserDetailDao {
 		}
 	}
 	
+	public int update(String id, Date birth, String club) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update userdetail set birth=?, club=? where id=?";
+		
+		try {
+			con = DBConnect.getConn();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setDate(1, birth);
+			pstmt.setString(2, club);
+			pstmt.setString(3, id);
+			return pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			return 0;
+		}finally {
+			DBConnect.close(con, pstmt, null);
+		}
+	}
+	
 	public UserDetailVo find(String id) {
 		
 		Connection con = null;
