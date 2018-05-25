@@ -5,14 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.springframework.stereotype.Repository;
 
 import jdbc.DBConnect;
 
 @Repository
-public class LoginDao {
+public class LoginTest {
 	
-	public String login(String id, String pass) {
+	@Test
+	public void login() {
+		
+		String id = "1";
+		String pass = "1";
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -25,18 +31,11 @@ public class LoginDao {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(pass.equals(rs.getString("pass"))) {
-					return "true";
-				}else {
-					return "パスワードが間違っています。";
-				}
-			}else {
-				return "ユーザーIDが間違っています。";
+				Assert.assertEquals(pass, rs.getString("pass"));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
-			return null;
 		}finally {
 			DBConnect.close(con, pstmt, rs);
 		}

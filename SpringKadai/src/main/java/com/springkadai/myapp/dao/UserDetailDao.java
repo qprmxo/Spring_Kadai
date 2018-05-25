@@ -14,7 +14,7 @@ import jdbc.DBConnect;
 
 @Repository
 public class UserDetailDao {
-
+	
 	public int insert(String id, Date birth, String club) {
 		
 		Connection con = null;

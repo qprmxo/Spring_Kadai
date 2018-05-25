@@ -7,17 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBConnect {
+	
 	public static Connection getConn() throws SQLException{
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			
 			Connection con = DriverManager.getConnection(url, "kadaidb", "root");
-
-			return con;			
+			
+			return con;
 		}catch(ClassNotFoundException e) {
-			System.out.println(e.getMessage());
 			e.printStackTrace();
+			System.out.println(e.getMessage());
+			
 			return null;
 		}
 	}
