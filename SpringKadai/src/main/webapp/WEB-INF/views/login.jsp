@@ -59,7 +59,7 @@
 	
 	<br>
 	
-	<a href="join">新規加入</a>
+	<a href="join">新規加入tt</a>
 	
 </body>
 </html>
